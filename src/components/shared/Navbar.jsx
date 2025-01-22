@@ -127,11 +127,20 @@ const Navbar = () => {
                                     <NavLink to='/review' >
                                         <Button text={"Review"} />
                                     </NavLink>
+                                    <NavLink to='/slider' >
+                                        <Button text={"Slider"} />
+                                    </NavLink>
                                     <NavLink to='/parallax' >
                                         <Button text={"Parallax"} />
                                     </NavLink>
+                                    <NavLink to='/utlity' >
+                                        <Button text={"Utlity"} />
+                                    </NavLink>
                                     <NavLink to='/footer' >
                                         <Button text={"Footer(c)"} />
+                                    </NavLink>
+                                    <NavLink to='/dashboard' >
+                                        <Button text={"Dashboard"} />
                                     </NavLink>
                                 </div>
                             </div>

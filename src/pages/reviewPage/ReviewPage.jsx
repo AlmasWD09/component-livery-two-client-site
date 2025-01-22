@@ -1,8 +1,13 @@
+import ReviewOne from "./ReviewOne"
 
 
 const ReviewPage = () => {
   return (
-    <div>ReviewPage</div>
+    <>
+    <div className="py-20">
+      <ReviewOne />
+    </div>
+    </>
   )
 }
 

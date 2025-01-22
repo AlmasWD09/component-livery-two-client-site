@@ -6,6 +6,8 @@ import FooterPage from "../pages/footerPage/FooterPage";
 import GallaryPage from "../pages/gallaryPage/GallaryPage";
 import ReviewPage from "../pages/reviewPage/ReviewPage";
 import ParallaxPage from "../pages/parallaxPage/ParallaxPage";
+import SliderPage from "../pages/sliderPage/SliderPage";
+import UtlityPage from "../pages/utlityPage/UtlityPage";
 
 const router = createBrowserRouter([
     {
@@ -29,8 +31,16 @@ const router = createBrowserRouter([
                 element: <ReviewPage />,
             },
             {
+                path: "/slider",
+                element: <SliderPage />,
+            },
+            {
                 path: "/parallax",
                 element: <ParallaxPage />,
+            },
+            {
+                path: "/utlity",
+                element: <UtlityPage />,
             },
             {
                 path: "/footer",

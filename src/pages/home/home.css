@@ -1,0 +1,12 @@
+/* Custom prefixCls অনুযায়ী স্টাইল */
+.custom-input {
+    border: 2px solid #4caf50; /* সবুজ বর্ডার */
+    border-radius: 8px; /* গোলাকার কোণা */
+    padding: 10px 15px;
+    background-color: #f0fff4; /* হালকা সবুজ ব্যাকগ্রাউন্ড */
+  }
+  
+  .custom-input:focus {
+    border-color: #2e7d32; /* ফোকাসে গাঢ় সবুজ বর্ডার */
+    box-shadow: 0 0 5px #4caf50;
+  }
