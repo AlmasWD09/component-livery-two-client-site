@@ -1,11 +1,21 @@
-import { Button, Select, Table } from "antd"
-import { useState } from "react"
+import { Button, Modal, Select, Space, Table, } from "antd"
+import { useEffect, useState } from "react"
 import { Input } from "antd"
 import { UserAddOutlined } from "@ant-design/icons"
-import { key } from "localforage"
+
 
 
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const [loading, setLoading] = useState(false)
   const fourtes = ['banana', 'mango', 'jakfoat']
   const handleClickButton = () => {
@@ -17,48 +27,24 @@ const Home = () => {
     }, 8000)
   }
 
-  const Data = [
+const [dataSource, setDataSource] = useState([])
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(res=>res.json())
+    .then(result =>{
+setDataSource(result)
+    })
+  },[])
+
+  const columns=[
     {
-      name: "first",
-      age: '23',
-      key: '01',
-    },
-    {
-      name: "first s",
-      age: '13',
-      key: '02',
-    },
-    {
-      name: "first a",
-      age: '23',
-      key: '03',
+title:"userId",
+userId:"id",
+
     },
   ]
 
-  const columData = [
-    {
-      title: "Name", //aita thakba Heading hisava
-      dataIndex: "name",
-      key: "key",
-      render: name => {
-        return <a >{name}</a>
-      }
-    },
-    {
-      title: "Age",
-      dataIndex: "age",
-      key: "key",
-      sorter: (a,b) => a.age -b.age
-    },
-    {
-      title: "Gratuated",
-      key: "key",
-      render: payload => {
-        return <p>{payload.age > 16 ? 'true' : 'false'}</p>
-      }
-    },
-  ]
-
+  console.log(dataSource)
   return (
     <div className="m-10">
       <Button
@@ -124,29 +110,39 @@ const Home = () => {
       </div>
 
       <div>
-
-        <p>Table components</p>
-        <Table
-          dataSource={Data}
-          columns={columData}
-        ></Table>
-        {/* 
-  1. dataSource={
-  name:------
-  age:----------
-  key:----------
-  }
-
-  2. columns={
-  title: 
-  dataIndex:
-  key:
-  }
-  3. render:
-  4. payload
-  */}
+        <Button type="primary" onClick={showModal}>
+          Open Modal
+        </Button>
+        <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
       </div>
 
+      <div>
+        <Space size={20} direction="vertical">
+          <Input prefix={<UserAddOutlined />} placeholder="Enter Your Name"></Input>
+          <Input prefix={<UserAddOutlined />} placeholder="Enter Your Name"></Input>
+        </Space>
+        {/* 
+        1. space
+        2. size
+        3. direction="vertical"
+        4. .ant-input::placeholder{------}
+        */}
+      </div>
+
+
+      <div>
+       <Table columns={columns} dataSource={dataSource}/>
+
+        {/* 
+        1. dataSource="",
+        2. columns="",
+        3. scroll={{y:100}}
+        */}
+      </div>
 
     </div>
   )

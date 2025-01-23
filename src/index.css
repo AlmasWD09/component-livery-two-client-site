@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+.content{
+    background-color: red;
+}
+
+.ant-btn.css-dev-only-do-not-override-1htoz2s.ant-btn-default.ant-btn-color-default.ant-btn-variant-outlined {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
